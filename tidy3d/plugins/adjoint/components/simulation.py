@@ -827,3 +827,7 @@ class JaxSimulation(Simulation, JaxObject):
                 input_structures=input_structures_vjp, grad_monitors=(), grad_eps_monitors=()
             )
         )
+    
+    def update_input_structures(self, input_structures: List[JaxStructure]) -> JaxSimulation:
+        """Update the input structures of the simulation."""
+        return self.copy(update=dict(input_structures=tuple(input_structures)))
